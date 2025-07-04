@@ -270,6 +270,26 @@ footer p {
         height: auto;
     }
 }
+.flex {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  justify-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.flex > a {
+  width: 100%; /* ou fixe, ex. 200px */
+  max-width: 200px;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
 </style>
 <!-- Import de hls.js -->
 <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
