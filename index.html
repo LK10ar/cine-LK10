@@ -469,6 +469,31 @@ footer p {
         </a>
         <a href="#" onclick="playVideo('https://livetv.mylifeisgood.net.ru/channels/tnt4.m3u8', event)" class="w30" role="button">
             <img src="img/" alt="TV LIVE" />
+
+<a href="#" onclick="playVideo(event)" class="w30" role="button">
+  <img src="img/" alt="TV LIVE" />
+</a>
+
+<!-- Zone où la vidéo apparaîtra -->
+<div id="video-container"></div>
+
+<script>
+function playVideo(event) {
+  event.preventDefault(); // évite de recharger la page
+
+  // Code de l'iframe
+  const iframe = `
+    <iframe width="640" height="360" frameborder="0" 
+      src="https://mega.nz/embed/EXdyVIxJ#HDAR_k0qxWdGW26C4XtUwdRThnmQAnW031aHz2jfeJ4!1a" 
+      allowfullscreen allow="autoplay">
+    </iframe>
+  `;
+
+  // Injecte l'iframe dans le container
+  document.getElementById("video-container").innerHTML = iframe;
+}
+</script>
+
             
         </a>
         <a href="#" onclick="playVideo('https', event)" class="w30" role="button">
