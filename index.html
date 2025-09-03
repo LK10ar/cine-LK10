@@ -1,3 +1,5 @@
+voici mon code 
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -89,7 +91,6 @@ img:hover {
 li {
     list-style-type: none;
 }
-
 
 nav {
     background: #111;
@@ -266,8 +267,6 @@ footer p {
         width: 100%; 
     }
 
-   
-
     .flex {
         gap: 15px;
     }
@@ -276,27 +275,83 @@ footer p {
         width: 47%; 
         height: auto;
     }
-.flex {
+
+    .flex {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      justify-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .flex > a {
+      width: 100%;
+      max-width: 300px;
+    }
+
+    .flex img {
+        width: 105%;
+        height: 85px; /* ou 120px / 180px selon ta préférence */
+        object-fit: cover;
+        border-radius: 10px;
+    }
+}
+
+/* 🎬 Bloc film (image + vidéo) */
+/* ========================= */
+/* Grille pour la section ANIME */
+.anime-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr); /* 3 colonnes */
   gap: 20px;
   justify-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
 }
 
-.flex > a {
+/* Chaque film */
+.film {
+  background: #1a1a1a;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
   width: 100%;
-  max-width: 300px;
+  max-width: 350px;
 }
 
-.flex img {
-    width: 105%;
-    height: 85px; /* ou 120px / 180px selon ta préférence */
-    object-fit: cover;
-    border-radius: 10px;
+.film img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
 }
+
+.film h3 {
+  margin: 10px 0;
+  font-size: 1.2rem;
+  color: #ff4757;
+}
+
+.film iframe {
+  width: 100%;
+  height: 200px;
+  border-radius: 10px;
+}
+
+/* Responsive : sur mobile → 1 film par ligne */
+@media (max-width: 768px) {
+  .anime-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+
+
+
+
 
 
 </style>
@@ -482,40 +537,48 @@ footer p {
     </figure>
     </section>
     <section class="container" id="ANIME">
-    <h2>FILM ANIME</h2>
-    <figure class="flex">
-        
-          <img src="img/demon.jpg" alt="TV LIVE" />
-<div style="text-align: center; margin-top: 20px;">
-  <!-- Titre au-dessus de la vidéo -->
-  <h3>DEMON SLAYER : La Forteresse Infinie</h3>
+  <h2>FILM ANIME</h2>
+  <div class="anime-grid">
 
-  <!-- Vidéo centrée -->
-  <iframe width="640" height="360" frameborder="0"
-    src="https://mega.nz/embed/EXdyVIxJ#HDAR_k0qxWdGW26C4XtUwdRThnmQAnW031aHz2jfeJ4!1a"
-    allowfullscreen allow="autoplay">
-  </iframe>
-</div>
+    <div class="film">
+      <img src="img/demon.jpg" alt="Demon Slayer">
+      <h3>DEMON SLAYER</h3>
+      <iframe src="https://mega.nz/embed/EXdyVIxJ#HDAR_k0qxWdGW26C4XtUwdRThnmQAnW031aHz2jfeJ4!1a" allowfullscreen></iframe>
+    </div>
 
+    <div class="film">
+      <img src="img/les enfants du temps.jpg" alt="Les Enfants du Temps">
+      <h3>LES ENFANTS DU TEMPS</h3>
+      <iframe src="https://mega.nz/embed/0bVRAb5T#pbrd0UTQFA45Bv18QO_qkPgeU6WFvQH7dK2JogBmygE!1a" allowfullscreen></iframe>
+    </div>
 
-<img src="img/les enfants du temps.jpg" alt="TV LIVE" />
-<div style="text-align: center; margin-top: 20px;">
-  <!-- Titre au-dessus de la vidéo -->
-  <h3>LES ENFANTS DU TEMPS</h3>
+    <div class="film">
+      <img src="img/imazuna.jpg" alt="Inazuma Eleven">
+      <h3>INAZUMA ELEVEN</h3>
+      <iframe src="https://raw.githubusercontent.com/schumijo/iptv/main/playlists/mytf1/inazuma-eleven.m3u8" allowfullscreen></iframe>
+    </div>
 
-  <!-- Vidéo centrée -->
-  <iframe width="640" height="360" frameborder="0"
-    src="https://mega.nz/embed/0bVRAb5T#pbrd0UTQFA45Bv18QO_qkPgeU6WFvQH7dK2JogBmygE!1a"
-    allowfullscreen allow="autoplay">
-  </iframe>
-</div>
+    <div class="film">
+      <img src="img/rabbids.jpg" alt="Rabbids Invasion">
+      <h3>RABBIDS INVASION</h3>
+      <iframe src="https://jmp2.uk/sam-FRBD2300002CM.m3u8" allowfullscreen></iframe>
+    </div>
 
+    <div class="film">
+      <img src="img/onepiece.jpg" alt="One Piece">
+      <h3>ONE PIECE</h3>
+      <iframe src="https://exemple.com/onepiece.m3u8" allowfullscreen></iframe>
+    </div>
 
-    
-</a>
+    <div class="film">
+      <img src="img/naruto.jpg" alt="Naruto">
+      <h3>NARUTO</h3>
+      <iframe src="https://exemple.com/naruto.m3u8" allowfullscreen></iframe>
+    </div>
 
-    </figure>
-    </section>
+  </div>
+</section>
+
 <!-- Lecteur vidéo superposé -->
 <div id="videoPlayerContainer" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:3000; display:flex; justify-content:center; align-items:center;">
     <video id="videoPlayer" controls style="max-width:90%; max-height:80%; border-radius: 10px; box-shadow: 0 0 20px #ff4757;"></video>
@@ -571,6 +634,7 @@ footer p {
         container.style.display = 'none';
     }
 </script>
+
 
 </body>
 </html>
