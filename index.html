@@ -114,18 +114,121 @@ img:hover {
 }
 
           
-    header {
+   /* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: #111;
+  color: white;
   position: relative;
-  background: #1a1a1a;
-  padding: 20px 0;
+  z-index: 1200;
+}
+
+/* bouton burger */
+.burger {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.burger span {
+  display: block;
+  width: 26px;
+  height: 3px;
+  margin: 4px 0;
+  background: white;
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+/* transformation croix */
+.burger.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.burger.open span:nth-child(2) {
+  opacity: 0;
+}
+.burger.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* menu overlay */
+.nav-mobile {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(17,17,17,0.98);
+  transform: translateY(-100%);
+  transition: transform 0.35s ease;
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nav-mobile.open {
+  transform: translateY(0);
+}
+.nav-mobile-inner {
   text-align: center;
+}
+.nav-mobile .nav-link {
+  display: block;
+  font-size: 1.6rem;
+  color: #fff;
+  text-decoration: none;
+  padding: 12px 0;
+}
+.nav-mobile .nav-link:hover {
+  color: #ff4757;
+}
+.mobile-actions {
+  margin-top: 30px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.mobile-actions .action {
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  background: #fff;
+  color: #000;
+  font-weight: 700;
+  min-width: 140px;
+  text-align: center;
+}
+.mobile-actions .action:hover {
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+
+header {
+  display: flex;
+  justify-content: center; /* centre horizontalement */
+  align-items: center;     /* centre verticalement */
+  position: relative;
 }
 
 header h1 {
   margin: 0;
-  color: white;
-  font-size: 2rem;
+  font-size: 5em;
+  text-align: center;
+  flex: 1; /* occupe toute la largeur */
 }
+
+header .burger {
+  position: absolute;
+  right: 20px; /* menu burger toujours à droite */
+}
+
 
 /* Conteneur des boutons */
 .header-buttons {
@@ -254,9 +357,7 @@ footer p {
     margin: 0 auto; 
 }
 
-.burger {
-    display: none; 
-}
+
 
 .flex img {
     width: 100%;
@@ -264,12 +365,149 @@ footer p {
     object-fit: cover;
     border-radius: 10px;
 }
+/* --- burger & mobile menu --- */
+/* bouton burger */
+/* bouton burger */
+.burger {
+  display: none; /* affiché seulement en mobile */
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  z-index: 1200;
+}
+
+/* barres */
+.burger span {
+  display: block;
+  width: 26px;
+  height: 3px;
+  margin: 4px 0;
+  background: white;
+  border-radius: 2px;
+  transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55), 
+              opacity 0.3s ease, background 0.3s ease;
+  transform-origin: center;
+}
+
+/* état ouvert (croix stylée avec effet élastique) */
+.burger.open span:nth-child(1) {
+  transform: rotate(50deg) translate(6px, 6px);
+  background: #ff6b6b;
+}
+
+.burger.open span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0); /* disparition fluide */
+}
+
+.burger.open span:nth-child(3) {
+  transform: rotate(-50deg) translate(9px, -9px);
+  background: #ff6b6b;
+}
+
+
+@media (max-width: 768px) {
+  .burger {
+    display: flex; /* activé seulement sur mobile */
+  }
+}
+
+
+/* menu mobile overlay */
+.nav-mobile {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(17,17,17,0.98);
+  transform: translateY(-100%);
+  transition: transform 0.35s ease;
+  z-index: 1150;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* menu visible */
+.nav-mobile.open {
+  transform: translateY(0);
+}
+
+/* conteneur intérieur */
+.nav-mobile-inner {
+  text-align: center;
+  padding: 40px 20px;
+  width: 100%;
+}
+
+/* liens du menu */
+.nav-mobile .nav-link {
+  display: block;
+  font-size: 1.6rem;
+  color: #fff;
+  text-decoration: none;
+  padding: 12px 0;
+  transition: color 0.2s;
+}
+.nav-mobile .nav-link:hover {
+  color: #ff4757;
+}
+
+/* actions (boutons) dans mobile */
+.mobile-actions {
+  margin-top: 30px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+/* Style des boutons VPN / Discord */
+/* Style commun pour tous les boutons */
+.mobile-actions .action {
+  display: inline-block;
+  padding: 10px 15px; /* même padding que ton exemple */
+  border-radius: 8px; /* coins arrondis */
+  text-decoration: none;
+  background: #ffffff;
+  color: #000000;
+  font-weight: bold;
+  min-width: 160px;
+  text-align: center;
+  transition: background 0.3s, box-shadow 0.3s, color 0.3s;
+  box-shadow: none; /* pas d'ombre au repos */
+}
+
+/* Hover VPN */
+.mobile-actions .action:nth-child(1):hover {
+  background: #e84118;
+  box-shadow: 0 0 15px #e84118;
+  color: #ffffff;
+}
+
+/* Hover Discord */
+.mobile-actions .action:nth-child(2):hover {
+  background: #1861e8;
+  box-shadow: 0 0 15px #18a0e8;
+  color: #ffffff;
+}
+
+
+
+
+
 
 @media (max-width: 768px){
     .burger {
         display: flex; 
-        width: 40px;
-        height: 40px;
+        width: 50px;
         flex-direction: column;
         justify-content: space-around;
         cursor: pointer;
@@ -279,13 +517,7 @@ footer p {
         z-index: 1100;
     }
 
-    .burger span {
-        display: block;
-        height: 4px;
-        width: 100%;
-        background-color: white;
-        transition: 0.3s;
-    }
+  
 
     nav ul {
         position: fixed;
@@ -428,6 +660,11 @@ footer p {
     grid-template-columns: 1fr;
   }
 }
+.burger {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
 
 </style>
 <!-- Import de hls.js -->
@@ -442,15 +679,36 @@ footer p {
 <header>
   <h1>CINÉ LK10</h1>
 
-  <div class="header-buttons">
-    <a id="vpn-button" href="https://chromewebstore.google.com/detail/free-vpn-proxy-and-ad-blo/hipncndjamdcmphkgngojegjblibadbe?hl=fr" target="_blank">
-      VPN free
-    </a>
-    <a id="second-button" href="https://discord.gg/79vmBkJnVA"target="_blank">
-      Serveur discord
-    </a>
-  </div>
+  <!-- bouton burger toujours visible -->
+  <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-controls="nav-mobile" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </header>
+
+<!-- menu overlay -->
+<nav class="nav-mobile" id="nav-mobile" aria-hidden="true">
+  <div class="nav-mobile-inner">
+    <!-- liens de navigation -->
+    <a href="#FR" class="nav-link">TV LIVE FR</a>
+    <a href="#RU" class="nav-link">TV LIVE RU</a>
+    <a href="#EN" class="nav-link">TV LIVE EN</a>
+    <a href="#JP" class="nav-link">TV LIVE JP</a>
+    <a href="#GEO" class="nav-link">TV LIVE GEO</a>
+    <a href="#ANIME" class="nav-link">FILM ANIME</a>
+    <a href="#FILM" class="nav-link">FILM</a>
+
+    <!-- actions (VPN / Discord) -->
+    <div class="mobile-actions">
+      <a class="action" href="https://chromewebstore.google.com/detail/free-vpn-proxy-and-ad-blo/hipncndjamdcmphkgngojegjblibadbe?hl=fr" target="_blank" rel="noopener noreferrer">VPN free</a>
+      <a class="action" href="https://discord.gg/79vmBkJnVA" target="_blank" rel="noopener noreferrer">Serveur Discord</a>
+    </div>
+  </div>
+</nav>
+
+
+
 
 <!-- Ton header, nav, etc... -->
 <!-- Bouton retour en haut -->
@@ -789,6 +1047,52 @@ footer p {
     }
   });
 </script>
+<script>
+  (function () {
+    const burger = document.getElementById('burger');
+    const navMobile = document.getElementById('nav-mobile');
+
+    function openMenu() {
+      burger.classList.add('open');
+      burger.setAttribute('aria-expanded', 'true');
+      navMobile.classList.add('open');
+      navMobile.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      burger.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+      navMobile.classList.remove('open');
+      navMobile.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    burger.addEventListener('click', () => {
+      if (navMobile.classList.contains('open')) closeMenu();
+      else openMenu();
+    });
+
+    // Fermer au clic sur un lien
+    navMobile.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', closeMenu);
+    });
+
+    // Fermer avec la touche Echap
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navMobile.classList.contains('open')) {
+        closeMenu();
+      }
+    });
+
+    // Fermer si clic sur le fond (en dehors du menu)
+    navMobile.addEventListener('click', (e) => {
+      if (e.target === navMobile) closeMenu();
+    });
+  })();
+</script>
+
+
 
     <footer>&copy; by LK10</footer>
 </body>
