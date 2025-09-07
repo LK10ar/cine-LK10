@@ -82,6 +82,63 @@ img:hover {
     width: 50%;
 }
 
+#logo {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 100px;
+            height: auto;
+        }
+          
+    header {
+  position: relative;
+  background: #1a1a1a;
+  padding: 20px 0;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  color: white;
+  font-size: 2rem;
+}
+
+/* Conteneur des boutons */
+.header-buttons {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  display: flex;
+  gap: 10px; /* espace entre les boutons */
+}
+
+/* Style commun */
+#vpn-button,
+#second-button {
+  background: #ffffff;
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background 0.3s, box-shadow 0.3s, color 0.3s;
+}
+
+/* Hover du VPN */
+#vpn-button:hover {
+  background: #e84118;
+  box-shadow: 0 0 15px #e84118;
+  color: rgb(255, 255, 255);
+}
+
+/* Hover du second bouton (tu peux changer la couleur si tu veux) */
+#second-button:hover {
+  background: #1861e8;
+  box-shadow: 0 0 15px #18a0e8;
+  color: rgb(255, 255, 255);
+}
+
+
 /* Important : le lien doit avoir la même largeur que l'image pour la flex */
 #disco figure.flex a.w30 {
     display: block;
@@ -346,23 +403,36 @@ footer p {
   }
 }
 
-
-
-
-
-
-
-
-
 </style>
 <!-- Import de hls.js -->
 <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 
 </head>
 
+
 <body>
 
+
+<header>
+  <h1>CINÉ LK10</h1>
+
+  <div class="header-buttons">
+    <a id="vpn-button" href="https://chromewebstore.google.com/detail/free-vpn-proxy-and-ad-blo/hipncndjamdcmphkgngojegjblibadbe?hl=fr" target="_blank">
+      VPN free
+    </a>
+    <a id="second-button" href="https://discord.gg/79vmBkJnVA"target="_blank">
+      Serveur discord
+    </a>
+  </div>
+</header>
+
 <!-- Ton header, nav, etc... -->
+
+<a href="https://discord.gg/79vmBkJnVA" target="_blank">
+  <img src="img/logolk10.png" alt="Logo" id="logo">
+</a>
+
+
 
 <section class="container" id="FR">
     <h2>TV LIVE FR</h2>
@@ -680,6 +750,6 @@ footer p {
     }
 </script>
 
-
+    <footer>&copy; by LK10</footer>
 </body>
 </html>
